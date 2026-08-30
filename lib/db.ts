@@ -10,6 +10,9 @@ export async function postUrl(long_url: string, short_url: string)
 export async function getUrl(short_url: string)
 {
     const response = await sql`SELECT long_url FROM links WHERE short_url = ${short_url}`
-    const url = response
-    console.log(response)
+    
+    if (response.length === 0)
+        return null
+
+    return response[0].long_url as string
 }
