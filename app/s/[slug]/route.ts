@@ -1,0 +1,13 @@
+import { getUrl } from "@/lib/db"
+import { notFound, redirect } from "next/navigation"
+
+export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> })
+{
+    const { slug } = await params
+    const newUrl = await getUrl(slug)
+    console.log(newUrl)
+
+    if (newUrl == null || typeof newUrl != "string")
+        return notFound()
+    return redirect(newUrl)
+}
