@@ -1,3 +1,5 @@
+
+
 import Output from "@/components/Output"
 import { getUrl } from "@/lib/db"
 import { redirect } from "next/navigation"
@@ -8,17 +10,17 @@ type Props = {
 
 export default async function Shortened({ params }: Props) {
     const { slug } = await params
-    const newUrl = await getUrl(slug)
+    const longUrl = await getUrl(slug)
 
-    if (newUrl == null || typeof newUrl != "string")
+    if (longUrl == null || typeof longUrl != "string")
         return redirect("/")
 
     const info = {
-        oldUrl: slug,
-        newUrl: newUrl
+        shortUrl: slug,
+        longUrl: longUrl
     }
 
     return (
-        <Output oldUrl={info.oldUrl} newUrl={info.newUrl} />
+        <Output shortUrl={info.shortUrl} longUrl={info.longUrl} />
     )
 }
