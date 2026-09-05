@@ -1,3 +1,5 @@
+import { getUrl } from "./db"
+
 export function getShortUrl(length=6)
 {
     let result: string = ""
@@ -8,4 +10,9 @@ export function getShortUrl(length=6)
         result += characters.charAt(Math.floor(Math.random() * charactersLength))
     }
     return result
+}
+
+export async function validateShortUrl(url: string)
+{
+    return (await getUrl(url)) === null 
 }
