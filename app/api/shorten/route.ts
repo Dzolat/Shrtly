@@ -1,11 +1,10 @@
 "use server"
 
 import { postUrl } from "@/lib/db"
-import { getShortUrl } from "@/lib/func"
+import { getShortUrl, validateShortUrl } from "@/lib/func"
 
 export async function POST(request: Request) {
     const formData = await request.formData()
-
     const longUrl = formData.get("long_url")
 
     // check if url exists
@@ -14,11 +13,15 @@ export async function POST(request: Request) {
         return Response.json("you need a url.")
     }
 
-    const shortUrl = getShortUrl()
+    let shortUrl = ""
+    do {
+        shortUrl = getShortUrl()
+    } while (!await validateShortUrl(shortUrl))
 
-    postUrl(longUrl, shortUrl)
+    await postUrl(longUrl, shortUrl)
 
     return Response.json({
-        message: "Test"
+    shortUrl,
+    longUrl,
     })
 }
