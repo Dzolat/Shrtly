@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation"
+import Button from "./Items/Button"
 
 export default function ManageForm({ className }: { className: string })
 {
@@ -13,14 +14,13 @@ export default function ManageForm({ className }: { className: string })
             <p className="py-2 text-3xl font-semibold tracking-tight">Paste a slug here</p>
 
             <input
+                required
                 placeholder="Slug"
                 name="slug"
                 className="w-full rounded-lg px-3 py-3 text-base border border-base-07 font-normal"
             />
 
-            <button type="submit" id="manage" className="mt-4 p-2 rounded-lg btn text-white bg-blue-500 font-semibold text-base">
-                Shorten link
-            </button>
+            <Button text="Manage" />
         </form>
     )
     

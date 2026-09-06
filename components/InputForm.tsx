@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation"
+import Button from "./Items/Button"
 
 export default function InputForm({ className }: { className: string })
 {
@@ -42,15 +43,9 @@ export default function InputForm({ className }: { className: string })
         <form onSubmit={handleSubmit} className={"p-5 bg-white rounded-2xl mx-auto w-full h-full " + className}>
             <p className="py-2 text-3xl font-semibold tracking-tight">Paste a long link here</p>
 
-            <input
-                placeholder="https://example.com/long_url"
-                name="long_url"
-                className="w-full rounded-lg px-3 py-3 text-base border border-base-07 font-normal"
-            />
+        <input placeholder="https://example.com/long_url" name="long_url" className="w-full rounded-lg px-3 py-3 text-base border border-base-07 font-normal"/>
 
-            <button type="submit" className="mt-4 p-2 rounded-lg btn text-white bg-blue-500 font-semibold text-base">
-                Shorten link
-            </button>
+            <Button text="Shorten Link" />
         </form>
     )
 }
