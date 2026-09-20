@@ -1,4 +1,4 @@
-import { getUrl } from "@/lib/db"
+import { getUrl, addClickToUrl } from "@/lib/db"
 import { notFound, redirect } from "next/navigation"
 
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> })
@@ -9,5 +9,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
 
     if (longUrl == null || typeof longUrl != "string")
         return notFound()
+
+    await addClickToUrl(slug)
     return redirect(longUrl)
 }
