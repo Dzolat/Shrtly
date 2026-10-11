@@ -46,6 +46,7 @@ export default function CustomInputForm({ className }: { className: string })
             setError("Could not connect to the server. Please try again.")
         }
     }
+            // the css of this file was written with ai
 
     return (
         <form onSubmit={handleSubmit} className={"p-5 bg-white rounded-2xl mx-auto w-full h-full " + className}>

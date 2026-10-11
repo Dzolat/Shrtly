@@ -47,6 +47,7 @@ export default function InputForm({ className }: { className: string })
         }
     }
 
+            // the css of this file was written with ai
     return (
         <form onSubmit={handleSubmit} className={"p-5 bg-white rounded-2xl mx-auto w-full h-full " + className}>
             <p className="py-2 text-3xl font-semibold tracking-tight">Paste a long link here</p>

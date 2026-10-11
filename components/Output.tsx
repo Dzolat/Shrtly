@@ -24,7 +24,9 @@ export default async function Output({ shortUrl, longUrl }: OutputProps) {
     if (analytics == null)
         return
 
+    // the css of this file was written with ai
     return (
+        
         <div className="grid grid-cols-2 gap-5 p-3 grid-rows-2 w-full min-h-screen">
             <div className="p-5 bg-white rounded-2xl mx-auto w-full border border-neutral-200 shadow-sm">
                 <p className="py-2 text-3xl font-semibold tracking-tight">

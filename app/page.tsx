@@ -7,6 +7,11 @@ import { HistoryItem } from "@/components/History";
 import { useState, useEffect } from "react";
 import CustomInputForm from "@/components/CustomInputForm";
 
+type historyType = {
+  shortUrl: string,
+  longUrl: string
+}
+
 export default function Home() {
   const [history, setHistory] = useState<HistoryItem[]>([])
 
@@ -15,11 +20,12 @@ export default function Home() {
             localStorage.getItem("history") ?? "[]"
         );
 
-        const historyFinal: HistoryItem[] = saved.map((item) => ({
+        const historyFinal: HistoryItem[] = saved.map((item: historyType) => ({
             name: item.shortUrl,
             link: item.longUrl
         }));
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setHistory(historyFinal);
     }, []);
 

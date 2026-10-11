@@ -15,6 +15,7 @@ export default function CopyButton({ text }: { text: string }) {
         }, 1500)
     }
 
+    
     return (
         <button
             type="button"
