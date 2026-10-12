@@ -1,6 +1,6 @@
 # Shrtly - the simplest link shortener
 
-#### Video Demo: TODO — add the URL of the project demonstration video before submitting.
+#### Video Demo: https://youtu.be/5XP4OWm2nDY
 
 ## Description
 
